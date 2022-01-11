@@ -1,0 +1,143 @@
+<!-- 2022.01.11-->
+<!-- css -->
+<!-- 
+
+선택자 { 속성 : 속성값; }
+선택자 = 디자인을 적용할 html 영역
+속성 = 어떤 디자인을 적용할지 정의
+속성값 = 어떤 역할을 수행할지 구체적으로 명령, 세미콜론 ; 필수
+
+css 연동 방법 세가지
+1. inline style sheet
+<h1 style="color : red;"> coding 101 </h1>
+- 태그 안에 직접 원하는 스타일 적용
+2. internal style sheet
+<style> 태그 안에 넣기
+3. external style sheet
+.css 확장 파일을 따로 만들어서 
+<link> 태그로 불러오기 *열린 태그만 있음
+<link rel="stylesheet" href="style.css"
+이는 각각의 문서 안에서 따로 관리하여 가독성이 쉽다는 장점이 있다.
+
+
+style="color: red;"
+
+
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>CSS 연동 방법</title>
+  
+  <style>
+      h1 {
+          color: red;
+          
+      }
+  </style>
+  <link rel="stylesheet" href="index.css">
+  
+</head>
+<body>
+
+  <h1 style="color: blue;">Hello world</h1>
+  
+</body>
+</html>
+
+----------------
+<!-- CSS 선택자
+선택자(selector)   
+1. type 태그
+2. class 태그별명 .태그별명
+3. ID 태그의 이름 #태그 이름
+-->
+
+<!-- 부모 자식 관계1
+<header> 과 <h1><p> 부모 자식 관계
+원하는 지역에만 css속성을 적용하기 위해 부모를 구체적으로 표기
+header { color: red; }
+header h1 {color~}
+header p {color~}
+부모 뒤에 자식을 연달아서 하면 구체적으로 설정 가능
+-->
+---------------
+
+<!-- 캐스케이딩
+css의 우선순위를 결정하는 세가지 요소
+1. 순서 - 나중에 적용한 속성값의 우선순위가 높음
+2. 디테일 - 부모 명시해 구체적으로 작성된 선택자가 우선
+3. 선택자
+**css우선순위
+style>id>class>type 순으로 우선순위가 높음
+-->
+-------------------
+
+<!-- css 주요 속성
+1. width height 넓이와 높이를 설정
+2. font(size, family, style, weight)
+font-famil, 브라우저마다 지원하는 폰트가 다름. 입력한 순서대로 우선순위 적용(sans-serif는 마지막에 작성하는 디폴트 값)
+3. border 주변 테두리 
+4. background 
+-->
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>CSS 주요 속성 2</title>
+      
+  <style>
+    
+    .paragraph {
+      width: 500px;
+      height: 500px;
+      background-color: yellow;
+      background-image: url(elice_logo.png);
+      background-repeat: no-repeat;
+      background-position: center;
+      
+      font-size; 50px;
+      font-weight: bold;
+      font-style: italic;
+      font-family: Arial, times, sans-serif;
+      
+      border-style: solid;
+      border-width: 2px;
+      border-color: red;
+           
+    }   
+  </style>
+</head>
+<body>
+  <h1 class="paragraph">Nice to meet you</h1>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

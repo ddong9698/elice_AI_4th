@@ -1,0 +1,111 @@
+<!DOCYTPE hmtl>
+<!-- 2022.01.11 -->
+
+
+<!-- 태그 설명들
+<div> : 임의의 공간을 만들 때 사용
+<footer> : 가장 하단에 들어가는 정보를 표기할 때 사용
+<article> : 문서의 주요 이미지나 텍스트 등의 정보를 담고 구역을 설정하는 태그
+<main> : 문서의 주요 내용을 담는 태그
+<nav> : 메뉴 버튼을 담는 공간 (navigation)
+-->
+
+<!-- 03 구조를 잡을 때 사용하는 태그 -->
+<header> <!-- 상단 영역 웹사이트의 머리글을 담는 공간 -->
+    <nav>  <!--메뉴버튼을 담는 공간 <ul>, <li>,<a> 함께사용 -->
+        <ul>
+            <li>홈</li>
+            <li>전체 목록</li>
+        </ul>   
+    </nav>
+</header>
+
+<!-- main 태그-->
+<main role="main"> <!--본문 영역 -->
+    <article><!-- 주요 이미지나 텍스트 등의 정보를 담고 있는 구역-->
+        <h#> </h#><!-- h# 태그가 무조건 존재해야한다-->
+    </article>
+</main>
+
+<!--footer 태그 -->
+<footer> <!-- 하단 영역-->
+    <div> <!-- 임이의 공간을 만들 때 사용하는 태그, 공간으로 많이 사용될때-->
+        <p>주소: 경기도 고양시 일산서구</p>
+        <p>이메일: ddong9698</p>
+    </div>
+</footer>
+
+-----------------------------------------------
+<!-- example -->
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>엘리스 :: elice</title>
+</head>
+<body>
+  <header>
+      <h1>
+          <img src="elice_logo.png">
+      </h1>
+      
+      <nav>
+          
+              <li><a href="#">홈</a></li>
+              <li><a href="#">회사 소개</a></li>
+              <li><a href="#">연락처</a></li>
+          
+      </nav>
+  </header>
+  <main role="main">
+      <article>
+          <h2>회사 소개</h2>
+          <p>회사 소개와 관련된 본문 내용</p>
+      </article>
+  </main>
+  <footer>
+      <div>
+      <p>서울시 서초구</p>
+      </div>
+      <div>
+      <p>010-111-2222</p>
+      </div>
+  </footer>
+</body>
+</html>
+<!-- example -->
+------------------------------------------
+
+
+
+<!--HTML 태그의 두가지 성격 -->
+
+<!-- Block 요소
+y축 정렬 형태로 출력(줄바뀜 현상 나타남)
+공간을 만들 수 있고, 상하 배치 작업 가능, 공간에 대한 크기 설정 가능
+ex) header, div
+-->
+
+<!--inline 요소
+x축 정렬 형태로 출력, 공간을 만들 수 없고, 상하 배치 불가능
+block 요소와 반대
+-->
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Block, Inline</title>
+</head>
+<body>
+  <h1>Hello</h1> <!-- block 요소 -->
+  <h1>Hello</h1>
+  <h1>Hello</h1>
+  <a>Bye</a>    <!-- inline 요소 -->
+  <a>Bye</a>
+  <a>Bye</a>  
+</body>
+</html>
+
+
+
+
