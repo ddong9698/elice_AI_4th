@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>실습강의1반</title>
+
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+                <!-- 이 위 4줄을 사용하면 완전 가운데로 정렬이 된다-->
+        }
+        .box {
+            width:300px;
+            height: 300px;
+            background-color: green; <!-- important를 넣어주면 최우선 순위로 해주는-->
+            box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.5);
+            
+        }
+        .bold {
+            font-weight: bold;
+            box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.5);
+            background: url("https://cdn-api.elice.io/api/file/60e435c05d3d47a9898dd118cecce1eb/elice%20x%20KDT.png?se=2100-12-31T00%3A00%3A00Z&sp=rt&sv=2020-06-12&sr=b&sig=SIXozm79jNoFi1OsE/AaS/pXo0b34v4Ja7/EjMkHtfo%3D")
+        }
+        .red {
+            background-color: red;
+            box-shadow: 0px 0px 200px rgba(0, 0, 0, 0.9);
+        }
+
+    </style>
+
+</head>
+
+
+
+<body>
+    <div class="box bold">
+    Hellow ld!
+    </div>
+    <div class="box red">
+    NO bold Hellow ld!
+    </div>
+</body>
+</html>
