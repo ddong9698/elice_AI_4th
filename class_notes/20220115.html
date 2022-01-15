@@ -1,0 +1,190 @@
+<!--
+Git의 특징으로 옳은 것을 모두 고르세요.
+    - Git은 오픈 소스이다.
+    - 여러 사람이 서로 다른 컴퓨터를 사용하며 협업할 수 있게 한다.
+    - 작업한 내용을 커밋으로 만들어 저장한다.
+브랜치를 관리하는 명령에 대한 설명 중에서 올바른 것을 모두 고르세요.
+    - 새로운 브랜치를 만들려면 `git branch <브랜치명>`을 사용한다.
+    - `git reset --hard <커밋 해시>`를 사용하면 현재 브랜치를 특정한 커밋으로 이동할 수 있다.
+두 개의 브랜치를 합치기 위해 필요한 작업의 순서
+    git checkout feature/time-check
+    git merge master
+    Merge conflict를 해결한다
+    git checkout master
+    git merge feature/time-check
+    git branch -d feature/time-check
+====================================================================================
+01 깃의 특징
+1. 가지 치기와 병합
+    여러가지 작업, 일 단위, 기능 단위 등
+    여러 가지를 만들어서 개발 테스트 병합 등 
+    각 작업에 독립성이 있기 때문에 협업에 도움이 된다
+2. 가볍고 빠르다
+    로컬에서 진행 된다. 다른 사람과 코드를 공유할 때만 연결하니 항상 인터넷 연결이 필요하지 않다
+3. 분산 작업
+    사용 자들은 각자 복사된 프로젝트에서 동시에 작업을 진행할 수 있다
+4. 데이터 보장
+    체크성 - 모든 데이터가 지나가는 16지수 문자, commit ID라고 불린다. 
+    누가 어떤 기록을 했는지 확인이 가능하기에 버전 관리 가능
+5. 준비 영역
+    git add -> git commit 
+6. 오픈 소스
+    소스코드를 공개한 상태에서 인터넷에 누구나 프로젝트 반영에 기여가 가능하다
+
+Git 저장소 생성
+    cd 명령어로 elice 폴더로 들어가서 git init을 실행하자.
+    git init ./teaparty/elice면 모든게 해결되지! 간단하잖아!
+================================================================================
+02 Git 시작하기
+
+    git 파일 생성하기
+        저장소 생성 완료 후, 새로운 comment.js 파일을 등록하는 방법 (git add comment.js)
+        -> working directory
+        + git add
+        -> staging area
+        + git commit 
+        -> repository
+
+    git commit --amend =커밋을 수정가능
+    git log = 모든 커밋 저장소 반영 내역 확인 커밋 ID를 가져올 수 있다
+====
+git commit --amend -m "add main.py"
+===
+log옵션들
+저장소 반영 내역을 확인하기 위해 log 명령어를 사용
+
+git log -p -2
+    -p, --patch: 각 commit의 수정 결과를 보여주는 diff와 같은 역할을 수행
+    -n: 상위 n개의 commit만 보여준다
+    --start: 어떤 파일이 commit에서 수정되고 변경되었는지, 파일 내 라인이 추가되거나 삭제되었는지 확인
+    --pretty=oneline: 각 commit을 한 줄로 출력
+    --graph: commit간의 연결된 관계를 아스키 그래프로 출력한다(branch)
+    -S: 코드에서 추가되거나 제거된 내용 중 특정 텍스트가 포함되어 있는지 검사
+git status
+git reset README.txt
+git add rat.py crawling.py
+git status
+
+
+====================================================
+
+1. git branch
+    - 독립적으로 어떤 작업을 진행하기 위한 개녕
+    - 각각의 branch는 영향을 받지 않는다. 독립적인 작업을 하고 다시 병합을 하는 수행
+    1. 메인 branch: 배포할 수 있는 수준의 안정적인 branch   
+    2. 토픽 branch: 기능 추가나 버그 수정과 같은 단위 작업을 위한 branch, 수시로 생겼다 삭제 가능
+    git branch like_feature (새로운 branch가 생기는 것)
+    git checkout: 명령어를 사용해 전환 가능
+
+git branch
+
+git branch elice
+
+2. fast forward 방식의 병합
+    master branch에서 변경된것 없이 새로운 내용만 추가된다면 fast forward
+    
+    갈라지는 branch에서 각각 따로 벌어지는 
+    git branch --merged(병합된 branch를 볼 수 있다)
+
+    git branch 삭제
+    git branch -d <branch name>
+3. merge
+
+git checkout master
+git merge add_app
+git log
+
+
+4. confilct 해결
+    - merge한 두 branch에서 같은 파일을 변경 했을 때 충돌이 발생
+
+git branch elice
+git checkout elice
+git add module1.py
+git commit -m "test"
+
+git checkout master
+git merge add_app
+git branch -d add_app
+
+-----------충돌 해결하기-------------
+def elice_javascript() :
+'''
+    this file is elice's javascript func
+'''
+def perfect_time_check() :
+'''
+    He is murdering time!
+'''
+if __name__ == '__main__' :
+    elice_javascript()
+    perfect_time_check()
+
+git add crawling.py
+git commit -m "test"
+
+git checkout madhatter
+git merge elice
+
+git checkout master
+git merge elice
+-----------------------------
+04 git 원격 저장소
+    git clone
+    git remote
+    git remote add origin (주소값)
+    git remote rm 으로 삭제 가능
+
+    원격 저장소 동기화
+    git pull: 원격 저장소에서 데이터를 가져와 로컬 데이터와 병합
+    git log: 변경된 파일을 확인하고 merge를 해준다
+
+순서
+1. git remote add origin(또는 다른 원격저장소 이름)으로 로컬저장소와 연결
+2. git fetch or git pull을 이용해 원격저장소의 내용들을 동기화
+3. fetch를 실행한 경우 git merge origin/master로 병합 완료
+4. git push origin master를 이용해 변경된 사항을 원격 저장소에 전달
+
+git remote -v : 저장소 개수를 확인하는 법
+----
+git fetch origin master
+git merge origin/master
+----
+git remote add rat /elice/project_file/git_remote_repository
+git push rat master
+---
+git pull origin master
+
+# 아래의 명령어는 app.py의 내용을 적용하기 위한 코드입니다. 수정하지 말아주세요.
+\cp -f modified.py app.py
+# push를 완료하기 위한 commit 명령어를 아래에 적어주세요 
+git add app.py
+git commit -m "test"
+
+# merge를 해결할 때 app.py를 고치고 myproject에 commit을 완료한 후 push해 주시면 됩니다.
+git push origin master
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
